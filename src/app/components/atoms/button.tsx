@@ -12,7 +12,7 @@ export default function Button({
 }: ButtonProps) {
   return (
     <button
-      className={`${backgroundColor ? `${backgroundColor}` : "bg-primary"} ${borderRadius} ${width} ${padding}`}
+      className={`button ${backgroundColor ? `${backgroundColor}` : "bg-primary"} ${borderRadius} ${width} ${padding}`}
       type={typeofButton}
       onClick={onClick}
     >

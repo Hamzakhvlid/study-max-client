@@ -13,12 +13,12 @@ export default function SideNav() {
   );
 
   const menuItems = [
-    "Pick a subject",
-    "Past papers",
-    "Community",
-    "Blog",
-    "Enter a Studyclix code",
-    "Pricing",
+    { name: "Pick a subject", href: "/pick-a-subject" },
+    { name: "Past papers", href: "/papers" },
+    { name: "Community", href: "#" },
+    { name: "Blog", href: "#" },
+    { name: "Enter a Study Max code", href: "/login" },
+    { name: "Pricing", href: "#" },
   ];
   const sidebarRef = useRef<HTMLDivElement>(null);
 
@@ -64,7 +64,7 @@ export default function SideNav() {
               key={index}
               className="px-6 py-2 hover:bg-categoriesColor cursor-pointer"
             >
-              {item}
+              <a href={item.href}>{item.name}</a>
             </li>
           ))}
         </ul>

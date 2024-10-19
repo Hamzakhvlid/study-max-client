@@ -13,7 +13,7 @@ export default function AboutUs() {
   return (
     <div className="min-h-screen bg-background">
       <div className="bg-primary text-white font-poppins_semibold py-12 text-center">
-        <h1 className="text-4xl font-bold mb-2">Exam Click</h1>
+        <h1 className="text-4xl font-bold mb-2">Study Max</h1>
         <p className="text-xl ">Your Gateway to Exam Success</p>
       </div>
 
@@ -21,7 +21,7 @@ export default function AboutUs() {
         <section className="mb-12 text-center">
           <h2 className="text-3xl font-poppins_semibold mb-4">About Us</h2>
           <p className="text-lg max-w-2xl text-muted-foreground mx-auto">
-            Exam Click is your comprehensive resource for accessing past exams
+            Study Max is your comprehensive resource for accessing past exams
             from various subject boards. We're dedicated to helping students
             prepare effectively for their exams by providing a vast collection
             of previous test papers.
@@ -30,7 +30,7 @@ export default function AboutUs() {
 
         <section className="mb-12">
           <h3 className="text-2xl font-poppins_semibold mb-6 text-center">
-            Why Choose Exam Click?
+            Why Choose Study Max?
           </h3>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {[
@@ -81,7 +81,7 @@ export default function AboutUs() {
             </CardHeader>
             <CardContent>
               <p className="text-muted-foreground">
-                At Exam Click, we believe that practice makes perfect. Our
+                At Study Max, we believe that practice makes perfect. Our
                 mission is to empower students with the tools they need to excel
                 in their exams. By providing access to past papers, we help
                 students familiarize themselves with exam formats, question
@@ -97,7 +97,7 @@ export default function AboutUs() {
           </h3>
           <p className="text-lg text-muted-foreground mb-6">
             Join thousands of students who have improved their exam performance
-            with Exam Click.
+            with Study Max.
           </p>
           <Button
             text="Get Started"

@@ -1,10 +1,7 @@
-"use client"
-import React, { useState } from 'react';
-import './pick-a-subject.scss';
-import usePickASubject from '@/hooks/usePickASubject';
-import CircularLoading from '@/app/components/atoms/circularloading/CicularLoading';
-import SkeletonLoading from '@/app/components/atoms/SkeletonLoadingCard/SkeletonLoadingCard';
-
+"use client";
+import React, { useState } from "react";
+import usePickASubject from "@/hooks/usePickASubject";
+import SkeletonLoading from "@/app/components/atoms/SkeletonLoadingCard/SkeletonLoadingCard";
 
 // Sample data for subjects
 // const subjects: Subject[] = [
@@ -24,35 +21,45 @@ import SkeletonLoading from '@/app/components/atoms/SkeletonLoadingCard/Skeleton
 
 // Sample data for subject filters
 
-
 export default function StudyPage() {
-  const [searchTerm, setSearchTerm] = useState('');
+  const [searchTerm, setSearchTerm] = useState("");
 
-  
-  const {filteredSubjects, activeFilter, setActiveFilter, subjectFilters, loading, filtering} = usePickASubject()
-  
+  const {
+    filteredSubjects,
+    activeFilter,
+    setActiveFilter,
+    subjectFilters,
+    loading,
+    filtering,
+  } = usePickASubject();
+
   return (
-    <div className="study-page">
-      <header className="header">
-        <div className="logo">Study Max</div>
-        <div className="search-bar">
+    <div className="font-poppins max-w-screen-xl mx-auto p-4">
+      <header className="flex justify-between items-center mb-4">
+        <div className="text-2xl font-bold text-teal-500">Study Max</div>
+        <div className="flex w-1/2">
           <input
             type="text"
             placeholder="Search subjects, topics and more..."
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
+            className="flex-grow px-4 py-2 border border-gray-300 rounded-l-md"
           />
-          <button className="search-button">🔍</button>
+          <button className="px-4 py-2 bg-teal-500 w-fit text-white rounded-r-md cursor-pointer">
+            🔍
+          </button>
         </div>
       </header>
 
-      <main>
-        <h1>Pick a subject</h1>
-        <div className="subject-filters">
+      <div>
+        <h1 className="text-2xl mb-4 text-center">Pick a subject</h1>
+        <div className="flex gap-2 mb-4 justify-center">
           {subjectFilters.map((filter) => (
             <button
               key={filter}
-              className={`filter-button ${activeFilter === filter ? 'active' : ''}`}
+              className={`px-6 py-2 w-fit bg-gray-200 rounded-full cursor-pointer ${
+                activeFilter === filter ? "bg-pink-500 text-white" : ""
+              }`}
               onClick={() => setActiveFilter(filter)}
             >
               {filter}
@@ -60,23 +67,32 @@ export default function StudyPage() {
           ))}
         </div>
 
-        <div className="subject-grid">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
           {filteredSubjects?.map((subject) => (
-            <div key={subject._id} className="subject-card">
-              <div className="subject-icon">{subject.icon}</div>
-              <h2>{subject.name}</h2>
+            <div
+              key={subject._id}
+              className="bg-white rounded-md p-4 shadow-md"
+            >
+              <div className="text-4xl mb-2">{subject.icon}</div>
+              <h2 className="text-lg mb-2 capitalize">{subject.name}</h2>
               {subject.levels.map((level) => (
-                <a key={level} href={`#${subject.name}-${level}`} className="level-link">
+                <a
+                  key={level}
+                  href={`#${subject.name}-${level}`}
+                  className="block text-teal-500 mt-2 hover:translate-x-1 transition-transform duration-300"
+                >
                   → {level}
                 </a>
               ))}
             </div>
           ))}
         </div>
-        {filteredSubjects?.length === 0 && <div className='flex justify-center'>No Subject Found</div>}
-        {loading && <><SkeletonLoading /></>}
-      </main>
 
+        {filteredSubjects?.length === 0 && (
+          <div className="flex justify-center">No Subject Found</div>
+        )}
+        {loading && <SkeletonLoading />}
+      </div>
     </div>
   );
 }

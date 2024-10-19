@@ -10,10 +10,10 @@ console.log(API)
   
   return (
     <section className="flex w-full items-center min-h-screen overflow-hidden">
-      <h1 className="login-nav z-10">Exam Click</h1>
-      <img className="login-left-arrow z-10" src="/images/Arrow Left.svg" alt="left arrow" />
+      <h1 className="login-nav z-10">Study Max</h1>
+      <a href="/"><img className="login-left-arrow z-10" src="/images/Arrow Left.svg" alt="left arrow" /></a>
       <div className="half-main-container">
-        <img className="login-hero" src="/images/login.png" alt="login" />
+        <img draggable={false} className="login-hero" src="/images/login.png" alt="login" />
         
       </div>
       <div className="half-main-container-2">

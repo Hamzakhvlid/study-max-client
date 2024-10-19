@@ -28,7 +28,7 @@ export default function Footer() {
       <div className="flex justify-between items-center mt-10 w-[80%]">
         <div className="flex items-center">
           <img src="/images/logo.svg" alt="" />
-          <h1 className="text-xl font-poppins_semibold">Exam Click</h1>
+          <h1 className="text-xl font-poppins_semibold">Study Max</h1>
         </div>
         <nav className="footer-items">
           <li className="footer-item">Pricing</li>
@@ -53,7 +53,7 @@ export default function Footer() {
           </option>
         </select>
         <h1 className="text-sm">
-          © 2024 Exam Click, Inc. • Privacy • Terms • Sitemap
+          © 2024 Study Max, Inc. • Privacy • Terms • Sitemap
         </h1>
         <div className="flex justify-around items-center gap-5">
           <img src="/images/x.svg" alt="" />

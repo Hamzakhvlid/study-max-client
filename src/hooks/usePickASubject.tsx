@@ -1,7 +1,7 @@
 import API from "@/api";
 import axios from "axios";
 import { useEffect, useState } from "react";
-const subjectFilters = ['Leaving Certificate', 'Junior Cycle', 'Ardteistiméireacht', 'Sraith Sóisearach'];
+const subjectFilters = ['Leaving Certificate', 'Junior Cycle'];
 export default function usePickASubject() {
   const [subjectsAll, setSubjectsAll] = useState<Subject[]>();
   const [activeFilter, setActiveFilter] = useState('Leaving Certificate');
