@@ -1,3 +1,4 @@
+import API from "@/api";
 import axios from "axios";
 import { useEffect, useState } from "react";
 const subjectFilters = ['Leaving Certificate', 'Junior Cycle', 'Ardteistiméireacht', 'Sraith Sóisearach'];
@@ -10,7 +11,7 @@ export default function usePickASubject() {
     setLoading(true)
     async function getSubjects() {
       const response = await axios.get(
-        "https://studymax-b8aec23b27d5.herokuapp.com/api/subjects"
+        `${API}/api/subjects`
       );
       console.log(response.data);
       setSubjectsAll(response.data);

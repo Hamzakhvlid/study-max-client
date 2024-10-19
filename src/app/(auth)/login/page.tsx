@@ -3,8 +3,10 @@ import "./login.scss";
 import Button from "@/app/components/atoms/button";
 import axios from "axios";
 import { useState } from "react";
+import API from "@/api";
 export default function login() {
   const [value, setValue] =useState("")
+console.log(API)
   
   return (
     <section className="flex w-full items-center min-h-screen overflow-hidden">
@@ -20,7 +22,7 @@ export default function login() {
     className="w-[50%] h-[50%] flex flex-col gap-y-5 justify-stretch"
       onSubmit={async (event: any) => {
         event.preventDefault();
-        const response = await axios.post(`${process.env.STUDY_MAX_BACKEND_URL}/api/accessKeys`, {value})
+        const response = await axios.post(`${API}/api/accessKeys`, {value})
         console.log(response)
         console.log(value);
       }}
