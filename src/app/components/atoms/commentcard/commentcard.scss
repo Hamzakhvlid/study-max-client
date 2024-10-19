@@ -1,0 +1,19 @@
+.commentcard{
+    @apply flex items-center justify-start gap-4 bg-[#EEEEEE]
+}
+.commentcard-box{
+    @apply flex-col justify-start items-start
+}
+.commentcard-box p{
+    display: -webkit-box;
+    -webkit-line-clamp: 2; // Show only 2 lines
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.commentcard-profile{
+    @apply rounded-full h-[24px] w-[24px]
+}
+.commentcard-username{
+    @apply font-poppins_semibold text-lg
+}

@@ -1,0 +1,23 @@
+.footer-items{
+    @apply list-none gap-5 grid grid-cols-1 grid-rows-7 sm:grid-rows-2 sm:grid-cols-4   xl:grid-rows-1 xl:grid-cols-7 font-poppins text-sm 
+}
+
+.footer-item{
+    @apply text-[#BFC2C8] hover:text-white cursor-pointer relative transition-all duration-300 ease-linear
+}
+.footer-item::after{
+    content: '';
+    position: absolute;
+    top:5;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 0%;
+    height: 2px;
+    background-color: white;
+    transition: width 0.3s ease; 
+}
+
+.footer-item:hover::after{
+    width: 100%;
+}
