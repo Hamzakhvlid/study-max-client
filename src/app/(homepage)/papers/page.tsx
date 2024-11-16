@@ -20,6 +20,10 @@ export default function StudyMaxPage() {
     sameYears,
     startYear,
     endYear,
+    allSubjects,
+    allLevels,
+    selectedPaperTypeTab,
+    setSelectedPaperTypeTab
   } = usePastPapers();
 
   return (
@@ -27,7 +31,7 @@ export default function StudyMaxPage() {
       <header className="bg-white shadow-sm">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex items-center justify-between">
           <div className="flex items-center">
-            <button className="text-teal-500 mr-4">
+            <button className="text-[#6d31ed] mr-4">
               <svg
                 className="w-6 h-6"
                 fill="none"
@@ -43,7 +47,7 @@ export default function StudyMaxPage() {
                 />
               </svg>
             </button>
-            <h1 className="text-2xl font-bold text-teal-500">Study Max</h1>
+            <a href="/" className="text-2xl font-poppins_semibold   font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500">Study Max</a>
           </div>
           <div className="flex-1 max-w-xl mx-4">
             <input
@@ -57,7 +61,7 @@ export default function StudyMaxPage() {
 
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <nav className="text-sm mb-6">
-          <a href="/" className="text-teal-500 hover:underline">
+          <a href="/" className="text-pink-500 hover:underline">
             Home
           </a>
           <span className="mx-2 text-gray-500">&gt;</span>
@@ -96,7 +100,11 @@ export default function StudyMaxPage() {
                 {["Leaving Certificate", "Junior Cycle"].map((exam) => (
                   <button
                     key={exam}
-                    onClick={() => setSelectedExam(exam)}
+                    onClick={() => {setSelectedExam(exam)
+
+                      setSelectedLevel("")
+                      setSelectedSubject("")
+                    }}
                     className={`px-4 py-2 rounded-full ${
                       selectedExam === exam
                         ? "bg-pink-500 text-white"
@@ -121,25 +129,10 @@ export default function StudyMaxPage() {
                   className="w-full md:w-[30%] p-2 border border-gray-300 rounded-md"
                 >
                   <option>Select</option>
-                  {selectedExam === "Leaving Certificate" ? (
-                    <>
-                      {leavingCertificateSubjects.map((subjects, index) => (
-                        <option key={`${subjects} - ${index}`} value={subjects}>
-                          {subjects}
-                        </option>
-                      ))}
-                    </>
-                  ) : selectedExam === "Junior Cycle" ? (
-                    <>
-                      {juniorCertificateSubjects.map((subjects, index) => (
-                        <option key={`${subjects} - ${index}`} value={subjects}>
-                          {subjects}
-                        </option>
-                      ))}
-                    </>
-                  ) : (
-                    <></>
-                  )}
+                  {allSubjects && allSubjects.map((subject:any) => (
+                    <option key={subject._id} value={subject._id}>{subject.name}</option>
+                  ))}
+                  
                 </select>
               </div>
             )}
@@ -148,7 +141,7 @@ export default function StudyMaxPage() {
               <div>
                 <h3 className="font-medium mb-2">Select level</h3>
                 <div className="flex gap-2">
-                  {["Higher", "Ordinary"].map((level) => (
+                  {allLevels.map((level:any) => (
                     <button
                       key={level}
                       onClick={() => setSelectedLevel(level)}
@@ -192,20 +185,20 @@ export default function StudyMaxPage() {
                     />
                   </svg>
                 </button>
-                <button className="text-teal-500 hover:text-teal-600 font-medium">
+                <button className="text-pink-500 hover:text-pink-600 font-medium">
                   All years
                 </button>
               </div>
             </div>
             <div className="bg-white rounded-lg shadow overflow-hidden">
               <div className="flex border-b">
-                <button className="flex-1 px-4 py-2 text-center font-medium bg-pink-500 text-white">
+                <button onClick={() => setSelectedPaperTypeTab(0)} className={`flex-1 px-4 py-2 text-center font-medium ${selectedPaperTypeTab === 0 ? "bg-pink-500 text-white": "text-gray-700 hover:bg-gray-100" } `}>
                   {`All (${filteredPapers.length})`}
                 </button>
-                <button className="flex-1 px-4 py-2 text-center font-medium text-gray-700 hover:bg-gray-100">
+                <button onClick={() => setSelectedPaperTypeTab(1)} className={`flex-1 px-4 py-2 text-center font-medium ${selectedPaperTypeTab === 1 ? "bg-pink-500 text-white": "text-gray-700 hover:bg-gray-100" } `}>
                   {`Mock Exams (${totalMockExams})`}
                 </button>
-                <button className="flex-1 px-4 py-2 text-center font-medium text-gray-700 hover:bg-gray-100">
+                <button onClick={() => setSelectedPaperTypeTab(2)} className={`flex-1 px-4 py-2 text-center font-medium ${selectedPaperTypeTab === 2 ? "bg-pink-500 text-white": "text-gray-700 hover:bg-gray-100" } `}>
                   {`State Exams (${totalStateExams})`}
                 </button>
               </div>

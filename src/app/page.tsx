@@ -13,7 +13,7 @@ export default function Home() {
     <Navbar />
     <Hero />
     <Categories />
-    <CommentsSection />
+    {/* <CommentsSection /> */}
     <Footer />
     </>
   );
